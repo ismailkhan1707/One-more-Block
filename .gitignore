@@ -1,0 +1,36 @@
+# ===========================
+# Godot 4
+# ===========================
+
+.import/
+.godot/
+.export/
+
+# Export presets (contains local paths)
+export_presets.cfg
+
+# Mono / C#
+.mono/
+data_*/
+mono_crash.*
+
+# Build output
+bin/
+obj/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+*.userprefs
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

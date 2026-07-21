@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cncjxjjd3yxpj"]
+
+[ext_resource type="Script" uid="uid://cpcqotossen43" path="res://Scripts/Crane.cs" id="1_4cvh1"]
+[ext_resource type="Texture2D" uid="uid://vm8mo2pat56m" path="res://Assets/Sprites/rail.png" id="2_d6de7"]
+[ext_resource type="Texture2D" uid="uid://dqxr4x306arrk" path="res://Assets/Sprites/hook.png" id="3_0rl61"]
+
+[node name="Crane" type="Node2D" unique_id=855528505]
+script = ExtResource("1_4cvh1")
+
+[node name="Rail" type="Sprite2D" parent="." unique_id=969792041]
+texture = ExtResource("2_d6de7")
+
+[node name="Hook" type="Node2D" parent="." unique_id=553789743]
+
+[node name="HookSprite" type="Sprite2D" parent="Hook" unique_id=999396441]
+texture = ExtResource("3_0rl61")
+
+[node name="Rope" type="Line2D" parent="Hook" unique_id=28682794]
+points = PackedVector2Array(0, 0, 0, 120)
+width = 3.0
+default_color = Color(0.74509805, 0.25882354, 0.36862746, 1)
+
+[node name="BlockSpawn" type="Marker2D" parent="Hook" unique_id=601919861]
+position = Vector2(0, 120)

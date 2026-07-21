@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c6lg51l2gj3y4"]
+
+[ext_resource type="PackedScene" uid="uid://cncjxjjd3yxpj" path="res://Scenes/Crane.tscn" id="1_idj7w"]
+[ext_resource type="PackedScene" uid="uid://c4ubvys6pc2v2" path="res://Scenes/Block.tscn" id="1_r150o"]
+[ext_resource type="Texture2D" uid="uid://dqxr4x306arrk" path="res://Assets/Sprites/hook.png" id="2_kln2b"]
+[ext_resource type="Script" uid="uid://67q823nxvec5" path="res://Scripts/GameManager.cs" id="3_kln2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2e5d"]
+size = Vector2(1500, 40)
+
+[node name="Main" type="Node2D" unique_id=1301255683]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=497360423]
+position = Vector2(640, 320)
+
+[node name="World" type="Node2D" parent="." unique_id=1052584989]
+
+[node name="Crane" parent="World" unique_id=855528505 instance=ExtResource("1_idj7w")]
+position = Vector2(640, 60)
+
+[node name="Ground" type="StaticBody2D" parent="World" unique_id=2045951356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground" unique_id=1354990704]
+position = Vector2(640, 607)
+shape = SubResource("RectangleShape2D_c2e5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Ground" unique_id=555399563]
+position = Vector2(645.99994, 607)
+scale = Vector2(50, 1.4)
+texture = ExtResource("2_kln2b")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=923565794]
+
+[node name="GameManager" type="Node" parent="." unique_id=989221988 node_paths=PackedStringArray("_crane", "_world", "_spawnTimer")]
+script = ExtResource("3_kln2b")
+BlockScene = ExtResource("1_r150o")
+_crane = NodePath("../World/Crane")
+_world = NodePath("../World")
+_spawnTimer = NodePath("SpawnTimer")
+
+[node name="SpawnTimer" type="Timer" parent="GameManager" unique_id=934867758]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="GameManager/SpawnTimer" to="GameManager" method="_on_spawn_timer_timeout"]
