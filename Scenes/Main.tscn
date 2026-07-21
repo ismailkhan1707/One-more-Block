@@ -31,15 +31,8 @@ texture = ExtResource("2_kln2b")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=923565794]
 
-[node name="GameManager" type="Node" parent="." unique_id=989221988 node_paths=PackedStringArray("_crane", "_world", "_spawnTimer")]
+[node name="GameManager" type="Node" parent="." unique_id=989221988 node_paths=PackedStringArray("_crane", "_world")]
 script = ExtResource("3_kln2b")
 BlockScene = ExtResource("1_r150o")
 _crane = NodePath("../World/Crane")
 _world = NodePath("../World")
-_spawnTimer = NodePath("SpawnTimer")
-
-[node name="SpawnTimer" type="Timer" parent="GameManager" unique_id=934867758]
-wait_time = 0.25
-one_shot = true
-
-[connection signal="timeout" from="GameManager/SpawnTimer" to="GameManager" method="_on_spawn_timer_timeout"]

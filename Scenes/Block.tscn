@@ -7,6 +7,8 @@
 size = Vector2(120, 40)
 
 [node name="Block" type="RigidBody2D" unique_id=427594507]
+contact_monitor = true
+max_contacts_reported = 4
 script = ExtResource("1_x55lh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=401784907]
