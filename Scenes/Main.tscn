@@ -31,8 +31,9 @@ texture = ExtResource("2_kln2b")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=923565794]
 
-[node name="GameManager" type="Node" parent="." unique_id=989221988 node_paths=PackedStringArray("_crane", "_world")]
+[node name="GameManager" type="Node" parent="." unique_id=989221988 node_paths=PackedStringArray("_crane", "_world", "_camera")]
 script = ExtResource("3_kln2b")
 BlockScene = ExtResource("1_r150o")
 _crane = NodePath("../World/Crane")
 _world = NodePath("../World")
+_camera = NodePath("../Camera2D")
